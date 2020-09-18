@@ -58,9 +58,6 @@ define([
           </button>
           <div class="toolbar-title">Choose Contacts</div>
         </div>
-        <button id="create-group-btn" class="create-group-btn">
-          <i class="icon icon-new-chat-group"></i> Create Group Chat
-        </button>
         
         <div class="contact-list-container">
           <div class="contact-list-title">Contacts</div>

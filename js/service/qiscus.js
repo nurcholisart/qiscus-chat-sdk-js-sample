@@ -5,13 +5,10 @@ define(['service/emitter'], function(emitter) {
   var Qiscus = QiscusSDKCore
   var qiscus = new QiscusSDKCore()
 
-  var appId = 'sdksample'
-  // var appId = 'dragongo'
-  // var appId = 'apptest-parvvzx2tq0si'
+  var appId = 'ecomart-d-qdbjizd1oi2'
 
   qiscus.init({
     AppId: appId,
-    // baseURL: 'https://dragongo.qiscus.com',
     options: {
       loginSuccessCallback: function(authData) {
         emitter.emit('qiscus::login-success', authData)
