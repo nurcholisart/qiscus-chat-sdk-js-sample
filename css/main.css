@@ -22,14 +22,22 @@ button {
 
 .toggle-widget-btn {
   position: absolute;
-  bottom: 10px;
-  right: 30px;
+  bottom: 20px;
+  right: 42px;
   background: #94ca62;
   border: none;
   color: white;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  width: 147px;
+  height: 44px;
+  box-shadow: 0 7px 16px rgba(46, 46, 46, .15);
+}
+
+.toggle-widget-btn:hover {
+  box-shadow: 0 7px 16px rgba(46,46,46,.25);
+  transform: translateY(-3px);
 }
 
 .widget-container {
@@ -39,11 +47,11 @@ button {
   height: 400px;
   width: 320px;
   overflow: hidden;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  right: 42px;
+  bottom: 77px;
 }
 @media screen and (max-width: 400px) {
   .widget-container {

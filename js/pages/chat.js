@@ -313,7 +313,7 @@ define([
     var $comment = $(CommentItem(comment))
     $content.find('.comment-list-container ul').append($comment)
     if (isAbleToScroll) {
-      $comment.get(0).scrollIntoView({ behavior: 'smooth' })
+      $comment.get(0).scrollIntoView({ block: 'end', behavior: 'auto', inline: 'start' })
     }
   })
 

@@ -26,9 +26,6 @@ define([
           <img src="${qiscus.userData.avatar_url}">
         </button>
         <div class="toolbar-title">Conversations</div>
-        <button type="button" class="chat-btn">
-          <i class="icon icon-new-chat"></i>
-        </button>
       </div>
     `
   }
@@ -36,7 +33,6 @@ define([
   function Empty() {
     return `
       <div class="ChatList">
-        ${Toolbar()}
         <div class="empty-content-container">
           <img src="/img/img-empty-chat.svg" class="empty-logo">
           <div class="empty-title">Oops!!</div>
@@ -138,7 +134,6 @@ define([
   function RoomList(rooms) {
     return `
       <div class="ChatList">
-        ${Toolbar()}
         <ul class="room-list">
           ${rooms.map(roomFormatter).join('')}
           <li class="load-more">
