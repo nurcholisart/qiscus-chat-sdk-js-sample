@@ -1,60 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Qiscus SDK Sample</title>
-  </head>
+<style>
+  button {
+    outline: none;
+  }
 
-  <body>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/icon.css" />
-    <link rel="stylesheet" href="css/login-page.css" />
-    <link rel="stylesheet" href="css/chat-list-page.css" />
-    <link rel="stylesheet" href="css/users-page.css" />
-    <link rel="stylesheet" href="css/toolbar.css" />
-    <link rel="stylesheet" href="css/create-group.css" />
-    <link rel="stylesheet" href="css/profile.css" />
-    <link rel="stylesheet" href="css/room-info.css" />
+  #qiscusToggle {
+    position: absolute;
+    bottom: 20px;
+    right: 42px;
+    background: #94ca62;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 147px;
+    height: 44px;
+    box-shadow: 0 7px 16px rgba(46, 46, 46, .15);
+    transition: all 0.3s ease;
+    justify-content: space-between;
+    z-index: 999999;
+  }
 
-    <!-- <button type="button" id="toggle-widget-btn" class="toggle-widget-btn" style="text-align: center; align-items: center; position: fixed;">
-      <img style="vertical-align: middle;"
-        src="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/public/qismo/img/icon-qiscus-widget-default.svg"
-        alt="Kirim Chat">
-      <span>&nbsp&nbspKirim Chat</span>
-    </button> -->
-    <div id="qiscus-widget" class="widget-container">
-      <div class="title-bar">
-        <button type="button" class="close-btn">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-      </div>
-      <input
-        type="file"
-        id="input-image"
-        accept="image/*"
-        style="display:none"
-      />
-      <input type="file" id="input-file" style="display:none" />
-      <div class="widget-content" id="widget-content"></div>
-    </div>
+  #qiscusToggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 16px rgba(46,46,46,0.25);
+  }
 
-    <script>
-      // Check that service workers are supported
-      if ('serviceWorker' in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('js/service-worker.js')
-        })
-      }
-    </script>
+  #qiscusWidget {
+    position: fixed;
+    width: 360px;
+    height: 510px;
+    bottom: 77px;
+    right: 42px;
+    border-radius: 5px;
+  }
 
-    <script src="https://unpkg.com/qiscus-sdk-core@2.9.10/dist/qiscus-sdk-core.min.js"></script>
-    <script src="https://unpkg.com/showdown@1.9.1/dist/showdown.js"></script>
-    <script src="js/lib/require.js" data-main="js/main.js"></script>
-  </body>
-</html>
+  #qiscusWidget {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 1;
+  }
+
+  #qiscusWidget.hidden {
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+</style>
+
+<button type="button" id="qiscusToggle" class="toggle-widget-btn" onclick="showHide()">
+  <img style="vertical-align: middle;"
+    src="https://s3-ap-southeast-1.amazonaws.com/qiscus-sdk/public/qismo/img/icon-qiscus-widget-default.svg"
+    alt="Kirim Chat">
+  <span>&nbspKirim Chat</span>
+</button>
+
+<iframe id="qiscusWidget" class="hidden" src="https://eco-buyer.netlify.app" frameborder="0" style="display: none;"></iframe>
+
+<script>
+  function showHide() {
+    if (qiscusWidget.style.display != 'none') {
+      qiscusWidget.classList.add('hidden');
+      setTimeout('qiscusWidget.style.display=\'none\'', 100);
+    } else {
+      qiscusWidget.style.display = 'block';
+      setTimeout('qiscusWidget.classList.remove(\'hidden\')', 100);
+    }
+  }
+</script>
